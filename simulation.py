@@ -4,12 +4,15 @@ import time
 from world import WORLD
 from robot import ROBOT
 import constants as c
-class SIMULATION:
-    def __init__(self):
-
-        self.physicsClient = p.connect(p.GUI)
+class SIMULATION():
+    def __init__(self,arg,time):
+        if arg == "DIRECT":
+            self.physicsClient = p.connect(p.DIRECT)
+        if arg == "GUI":
+            self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
+        self.time = float(time)
 
 
         self.world = WORLD()
@@ -22,7 +25,10 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-            time.sleep(1/30)
+            time.sleep(self.time)
+
+    def Get_Fitness(self):
+            self.robot.Get_Fitness()
 
 
     def __del__(self):
