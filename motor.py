@@ -7,7 +7,6 @@ class MOTOR:
     def __init__(self, jointName):
         self.jointName = jointName
         self.Prepare_To_Act()
-        print(jointName)
 
     def Prepare_To_Act(self):
         if(self.jointName == "Torso_Front_Leg"):

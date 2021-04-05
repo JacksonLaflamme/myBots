@@ -20,4 +20,6 @@ y = 0
 z = 1.5
 
 
-numberOfGenerations = 50
+numberOfGenerations = 40
+
+populationSize = 6

@@ -5,7 +5,7 @@ from world import WORLD
 from robot import ROBOT
 import constants as c
 class SIMULATION():
-    def __init__(self,arg,time):
+    def __init__(self,arg,time, simulationID):
         if arg == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
         if arg == "GUI":
@@ -16,7 +16,7 @@ class SIMULATION():
 
 
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT(simulationID)
 
     def Run(self):
         for i in range(0,c.iterations):
