@@ -1,6 +1,6 @@
 import numpy as np
 
-iterations = 2000
+iterations = 3000
 maxForce = 100
 
 BackLegAmplitude = np.pi/4
@@ -20,11 +20,11 @@ y = 0
 z = 1.5
 
 
-numberOfGenerations = 10
+numberOfGenerations = 15
 
 populationSize = 10
 
 numSensorNeurons = 4
 numMotorNeurons = 8
 
-motorJointRange = 0.2
+motorJointRange = .2

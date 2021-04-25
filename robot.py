@@ -50,3 +50,9 @@ class ROBOT:
         f.write(str(xCoordinateOfLinkZero))
         f.close()
         os.system("rename tmp"+str(self.myID)+".txt fitness"+str(self.myID)+".txt")
+
+    def Get_Z_Value(self):
+        stateOfLinkZero = p.getLinkState(self.robot, 0)
+        positionOfLinkZero = stateOfLinkZero[0]
+        zCoordinateOfLinkZero = positionOfLinkZero[2]
+        return zCoordinateOfLinkZero

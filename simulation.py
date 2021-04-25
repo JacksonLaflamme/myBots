@@ -19,13 +19,19 @@ class SIMULATION():
         self.robot = ROBOT(simulationID)
 
     def Run(self):
-        for i in range(0,c.iterations):
+        i = 0
+        while i < c.iterations:
             
             p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
             time.sleep(self.time)
+            
+            zCoordinateOfLinkZero = self.robot.Get_Z_Value()
+            if(zCoordinateOfLinkZero<3):
+                i = c.iterations
+            i+=1
 
     def Get_Fitness(self):
             self.robot.Get_Fitness()
