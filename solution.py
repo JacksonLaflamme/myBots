@@ -22,7 +22,7 @@ class SOLUTION:
             z = 1.5
 
             pyrosim.Start_SDF("world.sdf")
-            pyrosim.Send_Cube(name="Box", pos = [-400,0,1.5], size = [1000,3.5,3])
+            pyrosim.Send_Cube(name="Box", pos = [-400,0,1.5], size = [1000,3.5,3],mass=-100)
             pyrosim.End()
             while not os.path.exists("world.sdf"):
                 time.sleep(0.01)
