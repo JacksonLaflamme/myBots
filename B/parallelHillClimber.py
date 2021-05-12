@@ -2,6 +2,7 @@ from solution import SOLUTION
 import constants as c
 import copy
 import os
+import numpy as np
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -9,6 +10,8 @@ class PARALLEL_HILL_CLIMBER:
         os.system("rm fitness*.txt")
         self.parents = {}
         self.nextAvailableID = 0
+        self.fitnesses = np.zeros((c.populationSize, c.numberOfGenerations))
+        self.currentGen = 0
         for i in range(0, c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
@@ -57,6 +60,8 @@ class PARALLEL_HILL_CLIMBER:
         print("\n")
         for i in self.parents:
             print(str(self.parents[i].fitness)+"  "+str(self.children[i].fitness))
+            self.fitnesses[i,self.currentGen] = self.parents[i].fitness
+        self.currentGen+=1
         print("\n")
 
     def Show_Best(self):
@@ -68,3 +73,5 @@ class PARALLEL_HILL_CLIMBER:
                 minidx = i
         self.parents[minidx].Start_Simulation("GUI", "0.0005")
         print(minfitness)
+        np.save('fitnessesB', self.fitnesses)
+

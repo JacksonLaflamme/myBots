@@ -20,7 +20,7 @@ y = 0
 z = 1.5
 
 
-numberOfGenerations = 15
+numberOfGenerations = 50
 
 populationSize = 10
 

@@ -126,7 +126,7 @@ class SOLUTION:
         os.system("rm fitness"+str(self.myID)+".txt")
 
     def Mutate(self):
-        for i in range(0,5):
+        for i in range(0,10):
             layer = random.randint(0,2)
             if(layer == 1):
                 randomRow = random.randint(0,c.numSensorNeurons-1)
