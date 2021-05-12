@@ -126,14 +126,17 @@ class SOLUTION:
         os.system("rm fitness"+str(self.myID)+".txt")
 
     def Mutate(self):
-        randomRow = random.randint(0,c.numSensorNeurons-1)
-        randomColumn = random.randint(0,c.numHiddenNeurons-1)
-        self.weights_layer_one[randomRow, randomColumn] = random.random()*2-1
-
-        randomRow = random.randint(0,c.numMotorNeurons-1)
-        randomColumn = random.randint(0,c.numHiddenNeurons-1)
-        self.weights_layer_two[randomRow, randomColumn] = random.random()*2-1
-
+        for i in range(0,5):
+            layer = random.randint(0,2)
+            if(layer == 1):
+                randomRow = random.randint(0,c.numSensorNeurons-1)
+                randomColumn = random.randint(0,c.numHiddenNeurons-1)
+                self.weights_layer_one[randomRow, randomColumn] = random.random()*2-1
+        
+            else:
+                randomRow = random.randint(0,c.numMotorNeurons-1)
+                randomColumn = random.randint(0,c.numHiddenNeurons-1)
+                self.weights_layer_two[randomRow, randomColumn] = random.random()*2-1
 
     def Set_ID(self, ID):
         self.myID = ID
