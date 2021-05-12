@@ -20,11 +20,12 @@ y = 0
 z = 1.5
 
 
-numberOfGenerations = 15
+numberOfGenerations = 25
 
-populationSize = 10
+populationSize = 5
 
 numSensorNeurons = 4
 numMotorNeurons = 8
+numHiddenNeurons = 10
 
-motorJointRange = .2
+motorJointRange = .5
